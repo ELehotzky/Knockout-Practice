@@ -1,5 +1,10 @@
-let obj = {
-	firstName: ko.observable("")
+let object = {
+	firstName: ko.observable("Erica"),
+	lastName: ko.observable("Lehotzky")
 };
 
-ko.applyBindings(obj);
+object.fullName = ko.computed(function() {
+	return object.firstName() + " " + object.lastName();
+});
+
+ko.applyBindings(object);
