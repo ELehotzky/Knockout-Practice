@@ -3,7 +3,7 @@
 	<title>Knockout Practice</title>
 </head>
 <body>
-
+	<p>Friends (<span data-bind="text: friends().length"></span>)</p>
 	<ul data-bind="foreach: friends">
 		<li>
 			<span data-bind="text: name"></span>
@@ -13,7 +13,8 @@
 			<button data-bind="click: removeFriend">X</button>
 		</li>
 	</ul>
-	<button data-bind="click: addFriend">Add Friend</button>
+	<!-- disables add friend button when trying to add more than 5 friends -->
+	<button data-bind="click: addFriend, enable:friends().length < 5">Add Friend</button>
 
 <!-- 
 	<p>Last Name: <input data-bind="value: lastName" />
