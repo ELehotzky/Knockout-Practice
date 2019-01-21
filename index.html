@@ -10,8 +10,10 @@
 			<input type="checkbox" data-bind="checked: knowJS" />
 			<!-- favBook input is only visible only if they know JS -->
 			<input data-bind="value: favBook, visible: knowJS" />
+			<button data-bind="click: removeFriend">X</button>
 		</li>
 	</ul>
+	<button data-bind="click: addFriend">Add Friend</button>
 
 <!-- 
 	<p>Last Name: <input data-bind="value: lastName" />

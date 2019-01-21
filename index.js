@@ -18,6 +18,13 @@ function Friend(name) {
 	// default knowJS is false
 	this.knowJS = ko.observable(false);
 	this.favBook = ko.observable("");
+	this.removeFriend = function() {
+		object.friends.remove(this);
+	}
+}
+
+object.addFriend = function() {
+	object.friends.push(new Friend("new"));
 }
 
 ko.applyBindings(object);
