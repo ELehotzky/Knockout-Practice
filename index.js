@@ -13,6 +13,13 @@ let object = {
 // 	console.log(value);
 // });
 
+// {
+// 	name: "Buddy",
+// 	knowJS: true,
+// 	favBook: "Gone Girl",
+// 	isWeird: false
+// }
+
 function Friend(name) {
 	this.name = name;
 	// default knowJS is false
