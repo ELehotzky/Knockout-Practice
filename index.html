@@ -7,6 +7,9 @@
 	<ul data-bind="foreach: friends">
 		<li>
 			<span data-bind="text: name"></span>
+			<input type="checkbox" data-bind="checked: knowJS" />
+			<!-- favBook input is only visible only if they know JS -->
+			<input data-bind="value: favBook, visible: knowJS" />
 		</li>
 	</ul>
 

@@ -1,6 +1,6 @@
 let object = {
-	firstName: ko.observable("Erica"),
-	lastName: ko.observable("Lehotzky"),
+	// firstName: ko.observable("Erica"),
+	// lastName: ko.observable("Lehotzky"),
 	friends: ko.observableArray([new Friend("Alanna"), new Friend("Jessica")])
 };
 
@@ -15,6 +15,9 @@ let object = {
 
 function Friend(name) {
 	this.name = name;
+	// default knowJS is false
+	this.knowJS = ko.observable(false);
+	this.favBook = ko.observable("");
 }
 
 ko.applyBindings(object);
