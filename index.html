@@ -3,9 +3,13 @@
 	<title>Knockout Practice</title>
 </head>
 <body>
-	<p>First Name: <input data-bind="value: firstName, valueUpdate: 'keyup' " />
 
-	<p>First Name: <span data-bind="text: firstName"></span></p>
+	<ul data-bind="foreach: friends">
+		<li>
+			<span data-bind="text: name"></span>
+		</li>
+	</ul>
+
 <!-- 
 	<p>Last Name: <input data-bind="value: lastName" />
 
