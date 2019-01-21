@@ -1,7 +1,7 @@
 let object = {
 	// firstName: ko.observable("Erica"),
 	// lastName: ko.observable("Lehotzky"),
-	friends: ko.observableArray([new Friend("Alanna"), new Friend("Jessica")])
+	friends: ko.observableArray([new Friend(new dbFriend())])
 };
 
 // object.fullName = ko.computed(function() {
@@ -13,25 +13,35 @@ let object = {
 // 	console.log(value);
 // });
 
-// {
-// 	name: "Buddy",
-// 	knowJS: true,
-// 	favBook: "Gone Girl",
-// 	isWeird: false
-// }
-
-function Friend(name) {
-	this.name = name;
-	// default knowJS is false
-	this.knowJS = ko.observable(false);
-	this.favBook = ko.observable("");
-	this.removeFriend = function() {
-		object.friends.remove(this);
+function dbFriend() {
+	return {
+		name: "Buddy",
+		knowJS: true,
+		favBook: "Gone Girl",
+		isWeird: false
 	}
 }
 
+function Friend(dbFriend){
+	let map = ko.mapping.fromJS(dbFriend);
+	map.removeFriend = function() {
+		object.friends.remove(map);
+	}
+	return map;
+}
+
+// function Friend(name) {
+// 	this.name = name;
+// 	// default knowJS is false
+// 	this.knowJS = ko.observable(false);
+// 	this.favBook = ko.observable("");
+// 	this.removeFriend = function() {
+// 		object.friends.remove(this);
+// 	}
+// }
+
 object.addFriend = function() {
-	object.friends.push(new Friend("new"));
+	object.friends.push(new Friend(new dbFriend()));
 }
 
 ko.applyBindings(object);
