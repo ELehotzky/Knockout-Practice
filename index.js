@@ -18,7 +18,8 @@ function dbFriend() {
 		name: "Buddy",
 		knowJS: true,
 		favBook: "Gone Girl",
-		isWeird: false
+		isWeird: false,
+		numLib: 3
 	}
 }
 
@@ -27,6 +28,20 @@ function Friend(dbFriend){
 	map.removeFriend = function() {
 		object.friends.remove(map);
 	}
+	map.styleFriend = ko.computed(function() {
+		if (map.numLib() > 35) {
+			map.removeFriend();
+		}
+		if (map.numLib() > 25) {
+			return "white";
+		}
+		if (map.numLib() > 10) {
+			return "red";
+		}
+		if (map.numLib() > 5) {
+			return "green";
+		}
+	})
 	return map;
 }
 

@@ -5,11 +5,12 @@
 <body>
 	<p>Friends (<span data-bind="text: friends().length"></span>)</p>
 	<ul data-bind="foreach: friends">
-		<li>
+		<li data-bind="css: styleFriend">
 			<span data-bind="text: name"></span>
 			<input type="checkbox" data-bind="checked: knowJS" />
 			<!-- favBook input is only visible only if they know JS -->
 			<input data-bind="value: favBook, visible: knowJS" />
+			<input data-bind="value: numLib" />
 			<button data-bind="click: removeFriend">X</button>
 		</li>
 	</ul>
@@ -23,7 +24,7 @@
 
 	<p>Full Name: <span data-bind="text: fullName"></span></p> -->
 
-
+<link rel="stylesheet" href="styles.css">
 <script type="text/javascript" src="knockout-3.4.2.js"></script>
 <script type="text/javascript" src="knockout-mapping-2.4.1.js"></script>
 <script src="index.js"></script>
